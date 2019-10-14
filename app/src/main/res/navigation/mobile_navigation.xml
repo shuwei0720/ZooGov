@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/main_fragment">
+
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.momo.zoogov.ui.main.MainFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/frg_main">
+
+        <action
+            android:id="@+id/action_main_fragment_to_content_fragment"
+            app:destination="@id/content_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/content_fragment"
+        android:name="com.momo.zoogov.ui.main.ContentFragment"
+        tools:layout="@layout/frg_content"
+        android:label="{title}">
+
+        <action
+            android:id="@+id/action_content_fragment_to_webFragment"
+            app:destination="@id/web_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="title"
+            android:defaultValue="Default" />
+        <argument
+            android:name="arg_object"
+            app:argType="com.momo.zoogov.data.AnimalResults" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/web_fragment"
+        android:name="com.momo.zoogov.ui.main.WebFragment"
+        android:label="{arg_title}"
+        tools:layout="@layout/frg_web">
+        <argument
+            android:name="web_url"
+            app:argType="string"
+            android:defaultValue="DW" />
+        <argument
+            android:name="arg_title"
+            app:argType="string"
+            android:defaultValue="Default" />
+        <action
+            android:id="@+id/action_web_view_fragment_to_content"
+            app:destination="@id/content_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="com.momo.zoogov.ui.viewmodel.ItemViewModel"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_100"
+        android:orientation="vertical"
+        android:id="@+id/layout_item_main"
+        android:onClick="@{itemViewModel::onItemClick}">
+
+        <ImageView
+            android:id="@+id/image_hall_pic"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/text_hall_memo"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_hall_name"/>
+
+        <TextView
+            android:id="@+id/text_hall_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingTop="4dp"
+            android:singleLine="true"
+            android:textColor="@color/black_100"
+            android:textSize="18sp"
+            android:text="@{itemViewModel.name}"
+            app:layout_constraintBottom_toTopOf="@+id/text_hall_info"
+            app:layout_constraintEnd_toEndOf="@+id/text_hall_info"
+            app:layout_constraintStart_toStartOf="@+id/text_hall_info"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="館別" />
+
+        <TextView
+            android:id="@+id/text_hall_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="#ff888888"
+            android:textSize="14sp"
+            android:text="@{itemViewModel.info}"
+            app:layout_constraintBottom_toTopOf="@+id/text_hall_memo"
+            app:layout_constraintEnd_toStartOf="@+id/image_arrow"
+            app:layout_constraintStart_toEndOf="@+id/image_hall_pic"
+            app:layout_constraintTop_toBottomOf="@+id/text_hall_name"
+            tools:text="館內容"/>
+
+        <TextView
+            android:id="@+id/text_hall_memo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:paddingBottom="4dp"
+            android:gravity="left"
+            android:singleLine="true"
+            android:textColor="#ff888888"
+            android:textSize="14sp"
+            android:text="@{itemViewModel.memo}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/text_hall_info"
+            app:layout_constraintStart_toStartOf="@+id/text_hall_info"
+            app:layout_constraintTop_toBottomOf="@+id/text_hall_info"
+            tools:text="館資訊" />
+
+        <ImageView
+            android:id="@+id/image_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_hall_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_hall_info"
+            app:srcCompat="@drawable/ic_arrow_right" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

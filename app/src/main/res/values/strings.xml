@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">臺北市立動物園</string>
+
+    <string name="content_link">在網頁開啟</string>
+    <string name="content_inside">室內區</string>
+    <string name="content_closed_info">休館資訊</string>
+
+</resources>
